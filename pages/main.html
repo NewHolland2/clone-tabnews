@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário Mamãe! 🎉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .emojis {
+            font-size: 3rem;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .message {
+            font-size: 1.2rem;
+            color: #4a5568;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        .celebration-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .celebration-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .music-btn {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        .music-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+        }
+
+        .balloons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .balloon {
+            position: absolute;
+            width: 20px;
+            height: 25px;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .balloon:nth-child(1) {
+            background: #ff6b6b;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .balloon:nth-child(2) {
+            background: #4ecdc4;
+            left: 20%;
+            animation-delay: 1s;
+        }
+
+        .balloon:nth-child(3) {
+            background: #ffe66d;
+            left: 80%;
+            animation-delay: 2s;
+        }
+
+        .balloon:nth-child(4) {
+            background: #a8e6cf;
+            left: 90%;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff6b6b;
+            animation: confetti-fall 3s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .heart {
+            color: #ff6b6b;
+            font-size: 1.5rem;
+            display: inline-block;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .celebration-btn, .music-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+                margin: 10px 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="balloons">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+    </div>
+
+    <div class="container">
+        <h1>Feliz Aniversário Mamãe!</h1>
+        
+        <div class="emojis">🎉 🎂 🥳 🎈 🎁</div>
+        
+        <div class="message">
+            <p>Hoje é um dia muito especial! <span class="heart">💝</span></p>
+            <p>Desejamos muita felicidade, saúde e amor!</p>
+            <p>Que este novo ano seja repleto de alegrias e realizações!</p>
+        </div>
+
+        <button class="celebration-btn" onclick="celebrate()">
+            🎊 Celebrar! 🎊
+        </button>
+
+        <button class="music-btn" onclick="playMusic()">
+            🎵 Parabéns pra Você! 🎵
+        </button>
+    </div>
+
+    <script>
+        let isPlaying = false;
+        let audioContext;
+        let oscillator;
+
+        function celebrate() {
+            // Criar confetes
+            for (let i = 0; i < 50; i++) {
+                createConfetti();
+            }
+            
+            // Mensagem especial
+            setTimeout(() => {
+                alert('🎉 Parabéns, mamãe querida! Você é muito especial! 💕');
+            }, 500);
+        }
+
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.backgroundColor = getRandomColor();
+            confetti.style.animationDelay = Math.random() * 3 + 's';
+            confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
+        }
+
+        function getRandomColor() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#a8e6cf', '#ff8a80', '#82b1ff'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function playMusic() {
+            if (isPlaying) {
+                stopMusic();
+                return;
+            }
+
+            try {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                playHappyBirthday();
+                isPlaying = true;
+                document.querySelector('.music-btn').textContent = '🔇 Parar Música';
+            } catch (error) {
+                alert('🎵 Parabéns pra você! 🎵\nNesta data querida\nMuitas felicidades\nMuitos anos de vida! 🎂');
+            }
+        }
+
+        function stopMusic() {
+            if (oscillator) {
+                oscillator.stop();
+                oscillator = null;
+            }
+            if (audioContext) {
+                audioContext.close();
+                audioContext = null;
+            }
+            isPlaying = false;
+            document.querySelector('.music-btn').textContent = '🎵 Parabéns pra Você! 🎵';
+        }
+
+        function playHappyBirthday() {
+            const notes = [
+                {freq: 261.63, duration: 0.5}, // C
+                {freq: 261.63, duration: 0.5}, // C
+                {freq: 293.66, duration: 1},   // D
+                {freq: 261.63, duration: 1},   // C
+                {freq: 349.23, duration: 1},   // F
+                {freq: 329.63, duration: 2},   // E
+                
+                {freq: 261.63, duration: 0.5}, // C
+                {freq: 261.63, duration: 0.5}, // C
+                {freq: 293.66, duration: 1},   // D
+                {freq: 261.63, duration: 1},   // C
+                {freq: 392.00, duration: 1},   // G
+                {freq: 349.23, duration: 2},   // F
+            ];
+
+            let currentTime = audioContext.currentTime;
+            
+            notes.forEach((note, index) => {
+                const osc = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                osc.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                osc.frequency.value = note.freq;
+                osc.type = 'sine';
+                
+                gainNode.gain.setValueAtTime(0.3, currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, currentTime + note.duration);
+                
+                osc.start(currentTime);
+                osc.stop(currentTime + note.duration);
+                
+                currentTime += note.duration;
+            });
+
+            setTimeout(() => {
+                stopMusic();
+            }, currentTime * 1000);
+        }
+
+        // Animação automática de confetes ao carregar
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => createConfetti(), i * 100);
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
